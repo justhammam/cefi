@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>cefi cek jalan</ion-title>        
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="cekjalan">
+    <ion-list>
+        <ion-item-sliding *ngFor="let jalan of cekJalan; let i = index">
+            <ion-item>
+                <h2>STA : {{jalan[0]}}</h2>
+                <h3>Panjang : {{jalan[1]}}</h3>
+                <h3>Lebar : {{jalan[2]}}</h3>
+                <h3>Tebal : {{jalan[3]}}</h3>
+                <h3>Volume : {{jalan[4]}}</h3>
+            </ion-item>
+            <ion-item-options>
+                <button danger (click)="delete(i)">
+                    <ion-icon name="trash"></ion-icon>
+                    Delete
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    
+</ion-content>
+<button fab primary fab-bottom fab-right (click)="add()" style="z-index:100">
+    <ion-icon name="add"></ion-icon>
+</button>
