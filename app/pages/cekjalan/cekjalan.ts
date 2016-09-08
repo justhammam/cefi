@@ -7,7 +7,7 @@ import {AddPage} from "../add/add";
 })
 export class CekJalanPage {
 
-    public cekJalan: Array<[string, number, number, number, number]>;
+    public cekJalan: Array<[Array<number>, Array<number>]>;
 
     constructor(private nav: NavController) {}
 

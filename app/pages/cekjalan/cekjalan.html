@@ -8,11 +8,18 @@
     <ion-list>
         <ion-item-sliding *ngFor="let jalan of cekJalan; let i = index">
             <ion-item>
-                <h2>STA : {{jalan[0]}}</h2>
-                <h3>Panjang : {{jalan[1]}}</h3>
-                <h3>Lebar : {{jalan[2]}}</h3>
-                <h3>Tebal : {{jalan[3]}}</h3>
-                <h3>Volume : {{jalan[4]}}</h3>
+                <h2>{{i}} STA : {{jalan[0][0]}}</h2>
+                <h3>Lebar : {{jalan[0][1]}}</h3>
+                <h3>Tebal : {{jalan[0][2]}}</h3>
+                <br>
+                <h2>STA : {{jalan[0][7]}}</h2>
+                <h3>Lebar : {{jalan[0][8]}}</h3>
+                <h3>Tebal : {{jalan[0][9]}}</h3>
+                <br>
+                <h3>Panjang : {{jalan[0][3]}}</h3>
+                <h3>AvLebar : {{jalan[0][4]}}</h3>
+                <h3>AvTebal : {{jalan[0][5]}}</h3>
+                <h3>Volume : {{jalan[0][6]}}</h3>
             </ion-item>
             <ion-item-options>
                 <button danger (click)="delete(i)">
@@ -21,8 +28,7 @@
                 </button>
             </ion-item-options>
         </ion-item-sliding>
-    </ion-list>
-    
+    </ion-list>    
 </ion-content>
 <button fab primary fab-bottom fab-right (click)="add()" style="z-index:100">
     <ion-icon name="add"></ion-icon>

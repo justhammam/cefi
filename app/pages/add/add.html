@@ -1,29 +1,35 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Create</ion-title>
-        <ion-buttons end>
-            <button (click)="save()"><ion-icon name="checkmark"></ion-icon></button>
-        </ion-buttons>
+        <ion-title>Add STA</ion-title>        
     </ion-navbar>
 </ion-header>
  
 <ion-content class="add">
     <ion-list>
         <ion-item>
-            <ion-label floating>STA</ion-label>
-            <ion-input type="text" [(ngModel)]="sta"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Panjang (m)</ion-label>
-            <ion-input type="number" [(ngModel)]="panjang"></ion-input>
+            <ion-label floating>STA lokasi pengukuran (m)</ion-label>
+            <ion-input type="number" [(ngModel)]="sta"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Lebar (m)</ion-label>
             <ion-input type="number" [(ngModel)]="lebar"></ion-input>
         </ion-item>
+        <ion-item-sliding *ngFor="let tebal of tebalItem; let i = index">
+            <ion-item>
+                <h2>tebal : {{tebal}}</h2>
+            </ion-item>
+            <ion-item-options>
+                <button danger (click)="delete(i)">
+                    <ion-icon name="trash"></ion-icon>
+                    Delete
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
         <ion-item>
             <ion-label floating>Tebal (cm)</ion-label>
-            <ion-input type="number" [(ngModel)]="tebal"></ion-input>
-        </ion-item>
+            <ion-input type="number" [(ngModel)]="tItem"></ion-input>            
+        </ion-item>        
     </ion-list>
+    <button inset (click)="addTebal()"> Tambah Tebal </button>
+    <button inset (click)="save()"><ion-icon name="checkmark"></ion-icon> Simpan </button>
 </ion-content>
