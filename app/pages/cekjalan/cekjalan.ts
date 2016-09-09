@@ -16,8 +16,7 @@ export class CekJalanPage {
         if(!this.cekJalan){
             this.cekJalan = [];
         }
-        this.total = this.volume();
-         
+        this.total = this.volume();         
     }
 
     volume(){
