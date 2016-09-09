@@ -16,7 +16,7 @@
         </ion-item>
         <ion-item-sliding *ngFor="let tebal of tebalItem; let i = index">
             <ion-item>
-                <h2>tebal : {{tebal}}</h2>
+                <h2>tebal {{i+1}}: {{tebal}}</h2>
             </ion-item>
             <ion-item-options>
                 <button danger (click)="delete(i)">
@@ -27,9 +27,11 @@
         </ion-item-sliding>
         <ion-item>
             <ion-label floating>Tebal (cm)</ion-label>
-            <ion-input type="number" [(ngModel)]="tItem"></ion-input>            
+            <ion-input type="number" [(ngModel)]="tItem"></ion-input>
+            <button clear item-right (click)="addTebal()">Tambah</button>           
         </ion-item>        
     </ion-list>
-    <button inset (click)="addTebal()"> Tambah Tebal </button>
-    <button inset (click)="save()"><ion-icon name="checkmark"></ion-icon> Simpan </button>
+    <ion-row>
+        <ion-col offset-25 width-50><button block round (click)="save()"><ion-icon name="checkmark"></ion-icon> Simpan </button></ion-col>
+    </ion-row>
 </ion-content>
