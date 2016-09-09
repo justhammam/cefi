@@ -7,7 +7,7 @@ import {NavController} from 'ionic-angular';
 export class AddPage {
 
     private cekJalan: Array<[Array<number>, Array<number>]>; 
-    //sta, lebar, tebal, panjang, av lebar, av tebal, volume, staBefore, lebarBefore, tebalBefore, tebalItem
+    //sta, lebar, tebal, tebalItem
     public jalanItem: [Array<number>, Array<number>];
     public sta: number;
     public lebar: number;

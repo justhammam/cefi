@@ -1,3 +1,4 @@
+import { EditPage } from './../edit/edit';
 import { Component } from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {AddPage} from "../add/add";
@@ -9,6 +10,7 @@ export class CekJalanPage {
 
     public cekJalan: Array<[Array<number>, Array<number>]>;
     public total: number;
+    
     constructor(private nav: NavController) {}
 
     onPageDidEnter(){
@@ -38,5 +40,12 @@ export class CekJalanPage {
 
     add(){
         this.nav.push(AddPage);
+    }
+
+    
+    edit(index: number){
+        this.nav.push(EditPage, {
+            index : index
+        });
     }
 }
