@@ -1,1 +1,11 @@
-.cekjalan {}
+.cekjalan {
+    background-image: url('../img/kotak.jpg') no-repeat;
+    background-size:cover;
+    background-position: center;
+    margin: auto;
+    z-index: 2; 
+}
+rumus {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic; 
+}

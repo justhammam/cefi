@@ -43,6 +43,13 @@ export class EditPage {
       this.navCtrl.pop();
    }
 
+   addTebal(){
+        if(this.tItem != undefined){
+            this.tebalItem.push(this.tItem);
+        }
+        this.tItem = undefined;
+    }
+
    delete(index: number){
       index = this.index
       this.cekJalan.splice(index, 1);
