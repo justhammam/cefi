@@ -4,7 +4,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="cekjalan">
+<ion-content class="cekjalan" style="background: url(../img/kotak.jpg) center; background-size: cover;">
     <ion-list inset>
         <ion-card *ngFor="let jalan of cekJalan; let i = index">
             <ion-card-header>STA : {{(1*jalan[0][0]) | number : '1.0-2'}} m</ion-card-header>
@@ -26,13 +26,19 @@
                     </ion-col>
                 </ion-row>
             </ion-card-content>
-            <!--<ion-item-options>
-                <button danger (click)="delete(i)">
-                    <ion-icon name="trash"></ion-icon>
-                    Delete
-                </button>
-            </ion-item-options>-->
+            
         </ion-card>
+    <div *ngIf="leng==0">
+    <br>
+    <ion-row>
+        <ion-col width-20></ion-col>
+        <ion-col width-20></ion-col>
+        <ion-col width-20><img src="../img/icon.png" alt="cefi" align="middle"></ion-col>
+    </ion-row>
+    <h4 style="text-align:center; color:white">Cek Fisik Infrastruktur Jalan</h4>
+    <p style="text-align:center; color:white">Untuk mulai klik pada tombol plus di kanan bawah</p> 
+    </div>
+    
     </ion-list>    
 </ion-content>
 <button fab primary fab-bottom fab-right (click)="add()" style="z-index:100">

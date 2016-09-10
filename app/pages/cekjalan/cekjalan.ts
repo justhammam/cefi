@@ -10,6 +10,7 @@ export class CekJalanPage {
 
     public cekJalan: Array<[Array<number>, Array<number>]>;
     public total: number;
+    public leng : number;
     
     constructor(private nav: NavController) {}
 
@@ -18,7 +19,9 @@ export class CekJalanPage {
         if(!this.cekJalan){
             this.cekJalan = [];
         }
-        this.total = this.volume();         
+        this.total = this.volume();
+        this.leng = this.cekJalan.length;
+
     }
 
     volume(){
@@ -36,6 +39,8 @@ export class CekJalanPage {
         this.cekJalan.splice(index, 1);
         localStorage.setItem("cekjalan", JSON.stringify(this.cekJalan));
         this.total = this.volume();
+        this.leng = this.cekJalan.length;
+
     }
 
     add(){
