@@ -1,38 +1,44 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar dark>
         <ion-title>cefi cek jalan</ion-title>        
     </ion-navbar>
 </ion-header>
 
-<ion-content class="cekjalan">
-    <ion-list>
-        <ion-item-sliding *ngFor="let jalan of cekJalan; let i = index">
-            <ion-item>
+<ion-content class="cekjalan" style="background: url(../img/kotak.jpg) center; background-size: cover;">
+    <ion-list inset>
+        <ion-card *ngFor="let jalan of cekJalan; let i = index">
+            <ion-card-header>STA : {{(1*jalan[0][0]) | number : '1.0-2'}} m</ion-card-header>
+            <ion-card-content detail-push (click)="edit(i)">
                 <ion-row>
-                    <ion-col widht-50>
-                        <h3>STA : {{(1*jalan[0][0]) | number : '1.0-2'}} m</h3>
-                        <h3>Lebar : {{(1*jalan[0][1]) | number : '1.0-2'}} m</h3>
-                        <h3>Tebal : {{jalan[1]}}</h3>
-                        <h3>Rata-Rata : {{(1*jalan[0][2]) | number : '1.0-2'}} cm</h3>
+                    <ion-col widht-50>                        
+                        <h3><rumus>l </rumus>: {{(1*jalan[0][1]) | number : '1.0-2'}} m</h3>
+                        <h3>input <rumus>t</rumus> : {{jalan[1]}}</h3>
+                        <h3><rumus>t</rumus> : {{(1*jalan[0][2]) | number : '1.0-2'}} cm</h3>
                     </ion-col>
                     <ion-col widht-50>
                         <h3 *ngIf="i==0">Volume Total :</h3>
                         <h1 *ngIf="i==0">{{total | number : '1.0-2'}}</h1>
-                        <h3 *ngIf="i>0">Panjang : {{jalan[0][0] - cekJalan[i-1][0][0] | number : '1.0-2'}} m</h3>
-                        <h3 *ngIf="i>0">Lebar Rata-Rata : {{((1*jalan[0][1]) + (1*cekJalan[i-1][0][1]))/2 | number : '1.0-2'}} m</h3>
-                        <h3 *ngIf="i>0">Tebal Rata-Rata : {{((1*jalan[0][2]) + (1*cekJalan[i-1][0][2]))/2 | number : '1.0-2'}} cm</h3>
-                        <h3 *ngIf="i>0">Volume antar STA : {{(jalan[0][0] - cekJalan[i-1][0][0])*(((1*jalan[0][1]) + 
+                        <h3 *ngIf="i>0"><rumus>p</rumus> : {{jalan[0][0] - cekJalan[i-1][0][0] | number : '1.0-2'}} m</h3>
+                        <h3 *ngIf="i>0"><rumus>l</rumus> rata2 : {{((1*jalan[0][1]) + (1*cekJalan[i-1][0][1]))/2 | number : '1.0-2'}} m</h3>
+                        <h3 *ngIf="i>0"><rumus>t</rumus> rata2 : {{((1*jalan[0][2]) + (1*cekJalan[i-1][0][2]))/2 | number : '1.0-2'}} cm</h3>
+                        <h3 *ngIf="i>0"><rumus>V</rumus> {{i}} : {{(jalan[0][0] - cekJalan[i-1][0][0])*(((1*jalan[0][1]) + 
                             (1*cekJalan[i-1][0][1]))/2)*(((1*jalan[0][2]) + (1*cekJalan[i-1][0][2]))/2/100) | number : '1.0-2'}} m<sup>3</sup></h3>
                     </ion-col>
                 </ion-row>
-            </ion-item>
-            <ion-item-options>
-                <button danger (click)="delete(i)">
-                    <ion-icon name="trash"></ion-icon>
-                    Delete
-                </button>
-            </ion-item-options>
-        </ion-item-sliding>
+            </ion-card-content>
+            
+        </ion-card>
+    <div *ngIf="leng==0">
+    <br>
+    <ion-row>
+        <ion-col width-20></ion-col>
+        <ion-col width-20></ion-col>
+        <ion-col width-20><img src="../img/icon.png" alt="cefi" align="middle"></ion-col>
+    </ion-row>
+    <h4 style="text-align:center; color:white">Cek Fisik Infrastruktur Jalan</h4>
+    <p style="text-align:center; color:white">Untuk mulai klik pada tombol plus di kanan bawah</p> 
+    </div>
+    
     </ion-list>    
 </ion-content>
 <button fab primary fab-bottom fab-right (click)="add()" style="z-index:100">

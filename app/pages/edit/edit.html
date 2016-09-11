@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar dark>
-        <ion-title>Tambah STA</ion-title>        
+        <ion-title>Edit STA</ion-title>        
     </ion-navbar>
 </ion-header>
  
@@ -16,7 +16,7 @@
         </ion-item>
         <ion-item-sliding *ngFor="let tebal of tebalItem; let i = index">
             <ion-item>
-                <h2>tebal {{i+1}} : {{tebal}}</h2>
+                <h2>tebal {{i+1}}: {{tebal}}</h2>
                 <button clear item-right>
                     <ion-icon name="arrow-back"></ion-icon>
                 </button>
@@ -35,6 +35,7 @@
         </ion-item>        
     </ion-list>
     <ion-row>
-        <ion-col offset-25 width-50><button block round (click)="save()"><ion-icon name="checkmark"></ion-icon> Simpan </button></ion-col>
+        <ion-col width-50><button block round danger (click)="delete()"><ion-icon name="trash"></ion-icon> Delete </button></ion-col>
+        <ion-col width-50><button block round (click)="update()"><ion-icon name="checkmark"></ion-icon> Update </button></ion-col>
     </ion-row>
 </ion-content>
