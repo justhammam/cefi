@@ -20,7 +20,7 @@ export class EditPage {
     private tebal: number;
     public tebalItem: Array<number>;
     public tItem: number;
-    private index: number; 
+    private index: number;
 
     constructor(private navCtrl: NavController, private navParams: NavParams) {
         this.cekJalan = JSON.parse(localStorage.getItem("cekjalan"));
@@ -77,5 +77,7 @@ export class EditPage {
     }
 
     //fungsi menghapus input tebal 
-    deleteTebal(){}
+    deleteTebal(index: number){
+        this.tebalItem.splice(index, 1);
+    }
 }
