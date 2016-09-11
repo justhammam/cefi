@@ -14,6 +14,13 @@
             <ion-label floating>Lebar (m)</ion-label>
             <ion-input type="number" [(ngModel)]="lebar"></ion-input>
         </ion-item>
+        <ion-item>
+            <ion-label floating>Tebal (cm)</ion-label>
+            <ion-input type="number" [(ngModel)]="tItem"></ion-input>
+            <button clear item-right (click)="addTebal()">Tambah</button>           
+        </ion-item>        
+    </ion-list>
+    <ion-list>
         <ion-item-sliding *ngFor="let tebal of tebalItem; let i = index">
             <ion-item>
                 <h2>tebal {{i+1}} : {{tebal}}</h2>
@@ -22,17 +29,12 @@
                 </button>
             </ion-item>
             <ion-item-options>
-                <button danger (click)="delete(i)">
+                <button danger (click)="deleteTebal(i)">
                     <ion-icon name="trash"></ion-icon>
                     Hapus
                 </button>
             </ion-item-options>
         </ion-item-sliding>
-        <ion-item>
-            <ion-label floating>Tebal (cm)</ion-label>
-            <ion-input type="number" [(ngModel)]="tItem"></ion-input>
-            <button clear item-right (click)="addTebal()">Tambah</button>           
-        </ion-item>        
     </ion-list>
     <ion-row>
         <ion-col offset-25 width-50><button block round (click)="save()"><ion-icon name="checkmark"></ion-icon> Simpan </button></ion-col>

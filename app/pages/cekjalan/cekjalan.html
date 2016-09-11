@@ -1,6 +1,9 @@
 <ion-header>
     <ion-navbar dark>
-        <ion-title>cefi cek jalan</ion-title>        
+        <ion-title>cefi cek jalan</ion-title>
+        <ion-buttons end>
+            <button clear (click)="deleteAll()"><ion-icon name="trash"></ion-icon></button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -17,7 +20,7 @@
                     </ion-col>
                     <ion-col widht-50>
                         <h3 *ngIf="i==0">Volume Total :</h3>
-                        <h1 *ngIf="i==0">{{total | number : '1.0-2'}}</h1>
+                        <h1 *ngIf="i==0">{{total | number : '1.0-2'}} m<sup>3</sup></h1>
                         <h3 *ngIf="i>0"><rumus>p</rumus> : {{jalan[0][0] - cekJalan[i-1][0][0] | number : '1.0-2'}} m</h3>
                         <h3 *ngIf="i>0"><rumus>l</rumus> rata2 : {{((1*jalan[0][1]) + (1*cekJalan[i-1][0][1]))/2 | number : '1.0-2'}} m</h3>
                         <h3 *ngIf="i>0"><rumus>t</rumus> rata2 : {{((1*jalan[0][2]) + (1*cekJalan[i-1][0][2]))/2 | number : '1.0-2'}} cm</h3>
