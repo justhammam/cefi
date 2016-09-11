@@ -6,9 +6,8 @@ import {NavController} from 'ionic-angular';
 })
 export class AddPage {
 
-    private cekJalan: Array<[Array<number>, Array<number>]>; 
-    //sta, lebar, tebal, tebalItem
-    public jalanItem: [Array<number>, Array<number>];
+    private cekJalan: Array<[Array<number>, Array<number>]>;     //array pertama untuk sta, lebar, tebal. aray kedua untuk tebalItem
+    public jalanItem: [Array<number>, Array<number>];   //idem atas, untuk menyimpan sementara yang mau diinput
     public sta: number;
     public lebar: number;
 
@@ -27,6 +26,7 @@ export class AddPage {
         this.tebalItem = [];
     }
 
+    //fungsi menjumlahkan array
     sum(ukuran: number[]){
         let sum = 0;
         for (let i = 0; i < ukuran.length; i++) {
@@ -35,11 +35,13 @@ export class AddPage {
         return sum;
     }
 
+    //fungsi menghitung rata2 array
     average(angka: number[]){
         let average = this.sum(angka)/angka.length;
         return average;        
     }
 
+    //fungsi penambahan input pengukuran tebal
     addTebal(){
         if(this.tItem != undefined){
             this.tebalItem.push(this.tItem);
@@ -47,6 +49,11 @@ export class AddPage {
         this.tItem = undefined;
     }
 
+    deleteTebal(i: number){
+        this.tebalItem.splice(i, 1);
+    }
+
+    //fungsi menyimpan data yang diinput ke localStorage
     save(){
         this.addTebal();
         this.tebal = this.average(this.tebalItem);
